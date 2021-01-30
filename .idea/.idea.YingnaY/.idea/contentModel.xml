@@ -8,6 +8,10 @@
       <e p="Assets" t="Include">
         <e p="Drag.cs" t="Include" />
         <e p="Rotor.cs" t="Include" />
+        <e p="Scenes" t="Include">
+          <e p="Cell.cs" t="Include" />
+          <e p="Generator.cs" t="Include" />
+        </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
