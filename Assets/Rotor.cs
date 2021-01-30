@@ -15,7 +15,7 @@ public class Rotor : MonoBehaviour
     void Update()
     {
         _inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        
+
         Rotate(_inputVector);
     }
 
