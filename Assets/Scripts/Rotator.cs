@@ -5,64 +5,97 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
-    [SerializeField] private Transform _maze;
     [SerializeField] private Rigidbody _ball;
-    [SerializeField] private float _rotationSpeed = 40;
+    [SerializeField] private float _rotationSpeed = 30;
+    [SerializeField] private float _mouseSensitivity = 2;
 
-    private Vector3 mPrevPos = Vector3.zero;
-    private Vector3 mPosDelta = Vector3.zero;
-    
+       
     // Start is called before the first frame update
     void Start()
     {
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        MouseRotate2();
-        // float smoother = Time.deltaTime * _rotationSpeed;
-        // float hMov = Input.GetAxis("Horizontal") * smoother;
-        // float vMov = Input.GetAxis("Vertical") * smoother;
-        //
-        // Vector3 newRotation = transform.localEulerAngles + new Vector3(vMov, 0, -hMov);
-        // transform.localEulerAngles = newRotation;
-        // _ball.transform.localEulerAngles = transform.localEulerAngles;
+        // Mouse Rotate Control
+        MouseRotate();
+
+        // Keyboard Rotate Control
+        //KeyBoardRotate();
+
     }
-    
-    private void MouseRotate2()
+
+    private void KeyBoardRotate()
     {
-        if (Input.GetMouseButton(0))
+        float smoother = Time.deltaTime * _rotationSpeed;
+        float hMov = Input.GetAxis("Horizontal") * smoother;
+        float vMov = Input.GetAxis("Vertical") * smoother;
+
+        if (hMov != 0 || vMov != 0)
         {
-            float smoother = Time.deltaTime * _rotationSpeed;
-            float hMov = Input.GetAxis("Mouse X") * smoother;
-            float vMov = Input.GetAxis("Mouse Y") * smoother;
-            
-            Vector3 newRotation = transform.localEulerAngles + new Vector3(vMov, 0, -hMov);
-            transform.localEulerAngles = newRotation;
-            _ball.transform.localEulerAngles = transform.localEulerAngles;
+
+            Vector3 newRotation = transform.eulerAngles + new Vector3(vMov, 0, -hMov);
+            newRotation = Clamp(newRotation, 20f, 340f);
+            transform.rotation = Quaternion.Euler(newRotation);
+            _ball.transform.rotation = transform.rotation;
+        }
+        else
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), _rotationSpeed * Time.deltaTime);
+            _ball.transform.rotation = transform.rotation;
         }
     }
-    
-    private void MouseRotate()
+
+    private Vector3 Clamp(Vector3 value, float minMax, float maxMax)
     {
-        if (Input.GetMouseButton(0))
+        if (value.x > maxMax - 50 && value.x < maxMax)
         {
-            mPosDelta = Input.mousePosition - mPrevPos;
-            if (Vector3.Dot(transform.up, Vector3.up) >= 0)
-            {
-                transform.Rotate(transform.up, Vector3.Dot(mPosDelta, Camera.main.transform.right), Space.World);
-            }
-            else
-            {
-                transform.Rotate(transform.up, Vector3.Dot(mPosDelta, Camera.main.transform.right), Space.World);
-            }
-            
-            transform.Rotate(Camera.main.transform.right, Vector3.Dot(mPosDelta, Camera.main.transform.up), Space.World);
+            value.x = maxMax;
+        }
+        if(value.x < maxMax - 50 && value.x > minMax)
+        {
+            value.x = minMax;
         }
 
-        mPrevPos = Input.mousePosition;
+        if (value.z > maxMax - 50 && value.z < maxMax)
+        {
+            value.z = maxMax;
+        }
+        if (value.z < maxMax - 50 && value.z > minMax)
+        {
+            value.z = minMax;
+        }
+
+        return value;
     }
+
+
+    private void MouseRotate()
+    {
+
+        Cursor.lockState = CursorLockMode.Locked;
+        
+            float smoother = Time.deltaTime * _rotationSpeed * _mouseSensitivity;
+            float hMov = Input.GetAxis("Mouse X") * smoother;
+            float vMov = Input.GetAxis("Mouse Y") * smoother;
+
+            if (hMov != 0 || vMov != 0)
+            {
+
+                Vector3 newRotation = transform.eulerAngles + new Vector3(vMov, 0, -hMov);
+                newRotation = Clamp(newRotation, 20f, 340f);
+                transform.rotation = Quaternion.Euler(newRotation);
+                _ball.transform.rotation = transform.rotation;
+            }
+            //Back to zero Positioner
+            //else
+            //{
+            //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, 0), _rotationSpeed * Time.deltaTime);
+            //    _ball.transform.rotation = transform.rotation;
+            //}
+    }
+    
 
 }

@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6743f5fe-1455-460c-aa42-038fabe66787" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.YingnaY/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.YingnaY/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.YingnaY/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.YingnaY/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.YingnaY/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.YingnaY/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.YingnaY/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.YingnaY/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhysicMaterial.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PhysicMaterial.physicMaterial" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Rotor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Rotor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.settings-manager/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.settings-manager/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rotator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rotator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +101,8 @@
       <workItem from="1611951931411" duration="104000" />
       <workItem from="1611996443400" duration="3182000" />
       <workItem from="1612006261040" duration="566000" />
-      <workItem from="1612007045927" duration="4564000" />
+      <workItem from="1612007045927" duration="5032000" />
+      <workItem from="1612014910212" duration="719000" />
     </task>
     <servers />
   </component>
